@@ -1,0 +1,34 @@
+﻿@model Raporter.Models.Oddzialy
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Oddzialy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NazwaOddzialu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NazwaOddzialu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SymbolOddzialu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SymbolOddzialu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OddzialyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
