@@ -22,5 +22,9 @@ namespace Raporter.Data
         public System.Data.Entity.DbSet<Raporter.Models.Oddzialy> Oddzialies { get; set; }
 
         public System.Data.Entity.DbSet<Raporter.Models.Uzytkownicy> Uzytkownicies { get; set; }
+
+        public System.Data.Entity.DbSet<Raporter.Models.Funkcje> Funkcjes { get; set; }
+
+        public System.Data.Entity.DbSet<Raporter.Models.Raporty> Raporties { get; set; }
     }
 }

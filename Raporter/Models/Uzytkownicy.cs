@@ -11,7 +11,7 @@ namespace Raporter.Models
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public int OddzialyID { get; set; }
-        public int ID_funkcji { get; set; }
+        public int FunkcjeID { get; set; }
 
         public virtual Oddzialy Oddzialy { get; set; }
 

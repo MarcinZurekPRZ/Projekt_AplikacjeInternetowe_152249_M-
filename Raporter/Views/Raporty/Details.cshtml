@@ -1,0 +1,50 @@
+﻿@model Raporter.Models.Raporty
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Raporty</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Uzytkownicy.Imie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Uzytkownicy.Imie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataRaportu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataRaportu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Temat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Temat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tresc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tresc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RaportyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

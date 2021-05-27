@@ -88,3 +88,6 @@ C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Rap
 C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Raporter\bin\EntityFramework.SqlServer.dll
 C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Raporter\bin\EntityFramework.xml
 C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Raporter\bin\EntityFramework.SqlServer.xml
+C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Raporter\obj\Debug\Raporter.Migrations.InitialCreate.resources
+C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Raporter\obj\Debug\Raporter.csproj.GenerateResource.cache
+C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Raporter\obj\Debug\Raporter.Migrations.DodanietabelizmianakolumnywtabeliUrzytkownicy.resources

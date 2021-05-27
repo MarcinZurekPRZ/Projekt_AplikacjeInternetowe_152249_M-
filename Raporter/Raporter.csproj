@@ -131,8 +131,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105262133175_InitialCreate.cs" />
+    <Compile Include="Migrations\202105262133175_InitialCreate.Designer.cs">
+      <DependentUpon>202105262133175_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105272114470_Dodanie tabel i zmiana kolumny w tabeli Urzytkownicy.cs" />
+    <Compile Include="Migrations\202105272114470_Dodanie tabel i zmiana kolumny w tabeli Urzytkownicy.Designer.cs">
+      <DependentUpon>202105272114470_Dodanie tabel i zmiana kolumny w tabeli Urzytkownicy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Funkcje.cs" />
+    <Compile Include="Models\FunkcjeController.cs" />
     <Compile Include="Models\Oddzialy.cs" />
     <Compile Include="Models\OddzialyController.cs" />
+    <Compile Include="Models\Raporty.cs" />
+    <Compile Include="Models\RaportyController.cs" />
     <Compile Include="Models\Uzytkownicy.cs" />
     <Compile Include="Models\UzytkownicyController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -188,6 +201,16 @@
     <Content Include="Views\Oddzialy\Details.cshtml" />
     <Content Include="Views\Oddzialy\Edit.cshtml" />
     <Content Include="Views\Oddzialy\Index.cshtml" />
+    <Content Include="Views\Funkcje\Create.cshtml" />
+    <Content Include="Views\Funkcje\Delete.cshtml" />
+    <Content Include="Views\Funkcje\Details.cshtml" />
+    <Content Include="Views\Funkcje\Edit.cshtml" />
+    <Content Include="Views\Funkcje\Index.cshtml" />
+    <Content Include="Views\Raporty\Create.cshtml" />
+    <Content Include="Views\Raporty\Delete.cshtml" />
+    <Content Include="Views\Raporty\Details.cshtml" />
+    <Content Include="Views\Raporty\Edit.cshtml" />
+    <Content Include="Views\Raporty\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -204,6 +227,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105262133175_InitialCreate.resx">
+      <DependentUpon>202105262133175_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105272114470_Dodanie tabel i zmiana kolumny w tabeli Urzytkownicy.resx">
+      <DependentUpon>202105272114470_Dodanie tabel i zmiana kolumny w tabeli Urzytkownicy.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

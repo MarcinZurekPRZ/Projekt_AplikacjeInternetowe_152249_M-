@@ -48,7 +48,7 @@ namespace Raporter.Models
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UzytkownicyID,Imie,Nazwisko,OddzialyID,ID_funkcji")] Uzytkownicy uzytkownicy)
+        public ActionResult Create([Bind(Include = "UzytkownicyID,Imie,Nazwisko,OddzialyID,FunkcjeID")] Uzytkownicy uzytkownicy)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace Raporter.Models
         // Aby uzyskać więcej szczegółów, zobacz https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UzytkownicyID,Imie,Nazwisko,OddzialyID,ID_funkcji")] Uzytkownicy uzytkownicy)
+        public ActionResult Edit([Bind(Include = "UzytkownicyID,Imie,Nazwisko,OddzialyID,FunkcjeID")] Uzytkownicy uzytkownicy)
         {
             if (ModelState.IsValid)
             {
