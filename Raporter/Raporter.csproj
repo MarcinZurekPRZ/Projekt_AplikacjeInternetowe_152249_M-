@@ -126,6 +126,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\RaporterContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -149,6 +150,7 @@
     <Compile Include="Models\Uzytkownicy.cs" />
     <Compile Include="Models\UzytkownicyController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -186,11 +188,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Oddzialies\Create.cshtml" />
-    <Content Include="Views\Oddzialies\Delete.cshtml" />
-    <Content Include="Views\Oddzialies\Details.cshtml" />
-    <Content Include="Views\Oddzialies\Edit.cshtml" />
-    <Content Include="Views\Oddzialies\Index.cshtml" />
     <Content Include="Views\Uzytkownicy\Create.cshtml" />
     <Content Include="Views\Uzytkownicy\Delete.cshtml" />
     <Content Include="Views\Uzytkownicy\Details.cshtml" />
@@ -211,6 +208,8 @@
     <Content Include="Views\Raporty\Details.cshtml" />
     <Content Include="Views\Raporty\Edit.cshtml" />
     <Content Include="Views\Raporty\Index.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Welcome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

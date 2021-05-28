@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model Raporter.ViewModels.AccountViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+   
+    @using (Html.BeginForm("Login", "Account"))
+    {
+        @ViewBag.Error
+    <table cellpadding="2" cellspacing="2">
+        <tr>
+            <td>@Html.LabelFor(Model => Model.uzytkownik.Imie) </td>
+            <td>
+                @Html.TextBoxFor(model => model.uzytkownik.Imie)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.uzytkownik.Nazwisko)</td>
+            <td>
+                @Html.PasswordFor(model => model.uzytkownik.Nazwisko)
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <input type="submit" value="Login" />
+            </td>
+        </tr>
+
+    </table>
+    }
+
+</body>
+</html>
