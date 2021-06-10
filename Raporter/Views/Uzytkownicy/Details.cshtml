@@ -1,50 +1,74 @@
 ﻿@model Raporter.Models.Uzytkownicy
 
 @{
-    ViewBag.Title = "Details";
+    Layout = null;
 }
 
-<h2>Details</h2>
+<!DOCTYPE html>
 
-<div>
-    <h4>Uzytkownicy</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Oddzialy.NazwaOddzialu)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Oddzialy.NazwaOddzialu)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Imie)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Imie)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nazwisko)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nazwisko)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FunkcjeID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FunkcjeID)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UzytkownicyID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Uzytkownicy</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Oddzialy.NazwaOddzialu)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Oddzialy.NazwaOddzialu)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Imie)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Imie)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Nazwisko)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nazwisko)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FunkcjeID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FunkcjeID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Haslo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Haslo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Login)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Login)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.UzytkownicyID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

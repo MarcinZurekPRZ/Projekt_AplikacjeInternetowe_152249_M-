@@ -28,10 +28,13 @@ namespace Raporter.Controllers
             //if (avm.uzytkownik.Imie.Equals("tak") && avm.uzytkownik.Nazwisko.Equals("Ćwikla"))
             if((db.Uzytkownicies.Where(a => a.Login.Equals(avm.uzytkownik.Login) && a.Haslo.Equals(avm.uzytkownik.Haslo)).FirstOrDefault()) != null)
             {
+                var id = db.Uzytkownicies.Where(a => a.Login.Equals(avm.uzytkownik.Login) && a.Haslo.Equals(avm.uzytkownik.Haslo)).Select(a => new { Id = a.UzytkownicyID }).FirstOrDefault();
                 Session["Login"] = avm.uzytkownik.Login;
                 Session["Haslo"] = avm.uzytkownik.Haslo;
+                Session["UserID"] = id.Id;
 
-                return View("Welcome");
+                //return View("Welcome");
+                return RedirectToAction("ViewRap", "UserRaportsView");
             }
             else
             {
