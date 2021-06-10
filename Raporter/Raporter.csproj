@@ -140,6 +140,10 @@
     <Compile Include="Migrations\202105272114470_Dodanie tabel i zmiana kolumny w tabeli Urzytkownicy.Designer.cs">
       <DependentUpon>202105272114470_Dodanie tabel i zmiana kolumny w tabeli Urzytkownicy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106101748330_AddFieldsIn_Uzytkoncy.cs" />
+    <Compile Include="Migrations\202106101748330_AddFieldsIn_Uzytkoncy.Designer.cs">
+      <DependentUpon>202106101748330_AddFieldsIn_Uzytkoncy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Funkcje.cs" />
     <Compile Include="Models\FunkcjeController.cs" />
@@ -233,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105272114470_Dodanie tabel i zmiana kolumny w tabeli Urzytkownicy.resx">
       <DependentUpon>202105272114470_Dodanie tabel i zmiana kolumny w tabeli Urzytkownicy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106101748330_AddFieldsIn_Uzytkoncy.resx">
+      <DependentUpon>202106101748330_AddFieldsIn_Uzytkoncy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

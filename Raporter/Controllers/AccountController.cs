@@ -23,13 +23,13 @@ namespace Raporter.Controllers
             RaporterContext db = new RaporterContext();
 
 
-            var login = db.Uzytkownicies.Where(a => a.Imie.Equals(avm.uzytkownik.Imie));
+            var login = db.Uzytkownicies.Where(a => a.Login.Equals(avm.uzytkownik.Login));
 
             //if (avm.uzytkownik.Imie.Equals("tak") && avm.uzytkownik.Nazwisko.Equals("Ćwikla"))
-            if((db.Uzytkownicies.Where(a => a.Imie.Equals(avm.uzytkownik.Imie) && a.Nazwisko.Equals(avm.uzytkownik.Nazwisko)).FirstOrDefault()) != null)
+            if((db.Uzytkownicies.Where(a => a.Login.Equals(avm.uzytkownik.Login) && a.Haslo.Equals(avm.uzytkownik.Haslo)).FirstOrDefault()) != null)
             {
-                Session["Imie"] = avm.uzytkownik.Imie;
-                Session["Nazwisko"] = avm.uzytkownik.Nazwisko;
+                Session["Login"] = avm.uzytkownik.Login;
+                Session["Haslo"] = avm.uzytkownik.Haslo;
 
                 return View("Welcome");
             }

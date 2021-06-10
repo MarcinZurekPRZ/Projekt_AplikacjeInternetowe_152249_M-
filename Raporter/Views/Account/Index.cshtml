@@ -19,15 +19,15 @@
         @ViewBag.Error
     <table cellpadding="2" cellspacing="2">
         <tr>
-            <td>@Html.LabelFor(Model => Model.uzytkownik.Imie) </td>
+            <td>@Html.LabelFor(Model => Model.uzytkownik.Login) </td>
             <td>
-                @Html.TextBoxFor(model => model.uzytkownik.Imie)
+                @Html.TextBoxFor(model => model.uzytkownik.Login)
             </td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(Model => Model.uzytkownik.Nazwisko)</td>
+            <td>@Html.LabelFor(Model => Model.uzytkownik.Haslo)</td>
             <td>
-                @Html.PasswordFor(model => model.uzytkownik.Nazwisko)
+                @Html.PasswordFor(model => model.uzytkownik.Haslo)
             </td>
         </tr>
         <tr>

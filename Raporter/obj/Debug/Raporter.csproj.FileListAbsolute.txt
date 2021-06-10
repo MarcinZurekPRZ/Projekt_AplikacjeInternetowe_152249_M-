@@ -91,3 +91,4 @@ C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Rap
 C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Raporter\obj\Debug\Raporter.Migrations.InitialCreate.resources
 C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Raporter\obj\Debug\Raporter.csproj.GenerateResource.cache
 C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Raporter\obj\Debug\Raporter.Migrations.DodanietabelizmianakolumnywtabeliUrzytkownicy.resources
+C:\Users\Glorfindel\Desktop\ApIn_Proj\Projekt_AplikacjeInternetowe_152249_M-\Raporter\obj\Debug\Raporter.Migrations.AddFieldsIn_Uzytkoncy.resources
