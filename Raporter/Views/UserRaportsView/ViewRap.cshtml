@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<Raporter.Models.Raporty>
 
 @{
+    //ViewBag.Title = "Index";
     Layout = null;
+    //~/ Views / Shared / _Layout.cshtml
 }
 
 <!DOCTYPE html>
@@ -10,50 +12,58 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>ViewRap</title>
+    <link rel="stylesheet" href="~/Content/TabeleSzablon_Raporty.css" />
+    @Styles.Render("~/Content/css")
 </head>
 <body>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Uzytkownicy.Imie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataRaportu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Temat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tresc)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Uzytkownicy.Imie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataRaportu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Temat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tresc)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.RaportyID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.RaportyID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.RaportyID })
-            </td>
-        </tr>
-    }
-    
-    </table>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Uzytkownicy.Imie)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataRaportu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Temat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tresc)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Uzytkownicy.Imie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataRaportu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Temat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tresc)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RaportyID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.RaportyID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RaportyID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
 </body>
 </html>
