@@ -17,7 +17,7 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Create New", "Create", null, new { @class = "button" })
     </p>
     <div class="table-wrapper">
         <table class="fl-table">
@@ -25,6 +25,9 @@
                 <tr>
                     <th>
                         @Html.DisplayNameFor(model => model.Uzytkownicy.Imie)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Uzytkownicy.Nazwisko)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.DataRaportu)
@@ -44,6 +47,9 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Uzytkownicy.Imie)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.Uzytkownicy.Nazwisko)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.DataRaportu)

@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Raporter.ViewModels.RaportsKierViewModel>
+
+@{
+    //ViewBag.Title = "Index";
+    Layout = null;
+    //~/ Views / Shared / _Layout.cshtml
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewRap</title>
+    <link rel="stylesheet" href="~/Content/TabeleSzablon_Raporty.css" />
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.uzytkownik.Imie)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.uzytkownik.Nazwisko)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.oddzial.NazwaOddzialu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.raport.DataRaportu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.raport.Temat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.raport.Tresc)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.uzytkownik.Imie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.uzytkownik.Nazwisko)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.oddzial.NazwaOddzialu)
+                    <td>
+                        @Html.DisplayFor(modelItem => item.raport.DataRaportu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.raport.Temat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.raport.Tresc)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.raport.RaportyID }) |
+                        @Html.ActionLink("Details", "Details", new { item.raport.RaportyID }) |
+                        @Html.ActionLink("Delete", "Delete", new { item.raport.RaportyID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</body>
+</html>
+

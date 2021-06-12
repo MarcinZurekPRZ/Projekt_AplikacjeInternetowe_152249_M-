@@ -9,6 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/createRap.css" />
     <title>CreateRap</title>
 </head>
 <body>
@@ -16,6 +17,7 @@
     {
         @Html.AntiForgeryToken()
         
+    <div class="center">
         <div class="form-horizontal">
             <h4>Raporty</h4>
             <hr />
@@ -27,7 +29,7 @@
                     @Html.ValidationMessageFor(model => model.DataRaportu, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Temat, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -35,7 +37,7 @@
                     @Html.ValidationMessageFor(model => model.Temat, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Tresc, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -43,7 +45,7 @@
                     @Html.ValidationMessageFor(model => model.Tresc, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.UzytkownicyID, "UzytkownicyID", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -51,13 +53,15 @@
                     @Html.ValidationMessageFor(model => model.UzytkownicyID, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
         </div>
+    </div>
+        
     }
     
     <div>
