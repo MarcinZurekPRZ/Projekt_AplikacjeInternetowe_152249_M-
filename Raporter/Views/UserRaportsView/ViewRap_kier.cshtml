@@ -13,12 +13,25 @@
     <meta name="viewport" content="width=device-width" />
     <title>ViewRap</title>
     <link rel="stylesheet" href="~/Content/TabeleSzablon_Raporty.css" />
+    <link rel="stylesheet" href="~/Content/buttonsRed.css" />
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+
+    <div class="center">
+        <div class="blockMenu">
+
+            @Html.ActionLink("Dodaj raport", "Create", null, new { @class = "button" })
+
+        </div>
+        <div class="blockMenu">
+
+            @Html.ActionLink(linkText: "Wyloguj", actionName: "Logout", controllerName: "Account", routeValues: null, htmlAttributes: new { @class = "button buttonLogout" })
+
+        </div>
+
+    </div>
+
     <div class="table-wrapper">
         <table class="fl-table">
             <thead>

@@ -25,7 +25,8 @@ namespace Raporter.Controllers
             List<Raporty> raportylist = db.Raporties.Where(a => a.UzytkownicyID.ToString() == id.ToString()).ToList();
 
             ViewData["RaportyUzytkownika"] =  raportylist ;
-                
+            Session["TypWidoku"] = "ViewRap";
+
 
             return View(ViewData["RaportyUzytkownika"]);
         }
@@ -33,6 +34,8 @@ namespace Raporter.Controllers
         public ActionResult ViewRap_kier()
         {
             var funkcja = Session["FunkcjaID"];
+            Session["TypWidoku"] = "ViewRap_kier";
+
             List<Uzytkownicy> uzytkownik = db.Uzytkownicies.ToList();
             List<Raporty> raport = db.Raporties.ToList();
             List<Oddzialy> oddzial= db.Oddzialies.ToList();
@@ -48,20 +51,9 @@ namespace Raporter.Controllers
                             raport=rap,
                             uzytkownik=uz,
                             oddzial=od
-                            //uz.Imie,
-                            //uz.Nazwisko,
-                            //rap.DataRaportu,
-                            //rap.Temat,
-                            //rap.Tresc,
-                            //od.NazwaOddzialu
+
                         };
 
-            //var result = query.ToList();
-
-            //ViewData["RaportyUzytkownika"] = result;
-
-
-            //return View(ViewData["RaportyUzytkownika"]);
             return View(query);
         }
 
@@ -80,12 +72,9 @@ namespace Raporter.Controllers
                 db.Raporties.Add(raporty);
                 db.SaveChanges();
                 return RedirectToAction("ViewRap", "UserRaportsView");
-                //return RedirectToAction("Index");
             }
 
-            //ViewBag.UzytkownicyID = new SelectList(db.Uzytkownicies, "UzytkownicyID", "Imie", raporty.UzytkownicyID);
             return View("CreateRap");
-            //return View("CreateRap");
         }
 
     }

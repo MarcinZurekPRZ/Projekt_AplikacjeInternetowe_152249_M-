@@ -20,30 +20,32 @@
     {
     <div class="center">
 
-        @ViewBag.Error
-        <table cellpadding="2" cellspacing="2">
-            <tr>
-                <td>@Html.LabelFor(Model => Model.uzytkownik.Login) </td>
-                <td>
-                    @Html.TextBoxFor(model => model.uzytkownik.Login)
-                </td>
-            </tr>
-            <tr>
-                <td>@Html.LabelFor(Model => Model.uzytkownik.Haslo)</td>
-                <td>
-                    @Html.PasswordFor(model => model.uzytkownik.Haslo)
-                </td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                    <input type="submit" value="Login" />
-                </td>
-            </tr>
+        <p style="color: darkred; text-align: center; ">@ViewBag.Error</p>
+        <p style="color: green; text-align: center; ">@ViewBag.SuccessMessage</p>
 
-        </table>
+                <table cellpadding="2" cellspacing="2">
+                    <tr>
+                        <td>@Html.LabelFor(Model => Model.uzytkownik.Login) </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.uzytkownik.Login)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(Model => Model.uzytkownik.Haslo)</td>
+                        <td>
+                            @Html.PasswordFor(model => model.uzytkownik.Haslo)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <input type="submit" value="Login" />
+                        </td>
+                    </tr>
 
-    </div>
+                </table>
+
+</div>
         
     }
 
