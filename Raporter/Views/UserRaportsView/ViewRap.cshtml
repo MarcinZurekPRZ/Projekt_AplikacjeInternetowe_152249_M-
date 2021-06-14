@@ -74,9 +74,8 @@
                         @Html.DisplayFor(modelItem => item.Tresc)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.RaportyID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.RaportyID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.RaportyID })
+                        @Html.ActionLink("Edit", "Edit", "UserRaportsView", new { id = item.RaportyID }, null)
+
                     </td>
                 </tr>
             }

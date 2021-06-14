@@ -156,6 +156,7 @@
     <Compile Include="Models\UzytkownicyController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\RaportsAdmViewModel.cs" />
     <Compile Include="ViewModels\RaportsKierViewModel.cs" />
     <Compile Include="ViewModels\UserRaportsViewModel.cs" />
   </ItemGroup>
@@ -224,6 +225,9 @@
     <Content Include="Views\UserRaportsView\ViewRap.cshtml" />
     <Content Include="Views\UserRaportsView\CreateRap.cshtml" />
     <Content Include="Views\UserRaportsView\ViewRap_kier.cshtml" />
+    <Content Include="Views\UserRaportsView\Edit.cshtml" />
+    <Content Include="Views\UserRaportsView\ViewRap_Adm.cshtml" />
+    <Content Include="Views\UserRaportsView\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

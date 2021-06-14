@@ -1,0 +1,74 @@
+﻿@model Raporter.Models.Raporty
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/createRap.css" />
+    <link rel="stylesheet" href="~/Content/buttonsRed.css" />
+    <title>ViewRap</title>
+</head>
+<body>
+    <div class="center">
+        <div class="content" style="text-align: center">
+            <h3>Usuwanie raportu</h3>
+            <hr />
+     
+                    <p>@Html.DisplayNameFor(model => model.Uzytkownicy.Login)</p>
+
+
+
+                    @Html.DisplayFor(model => model.Uzytkownicy.Login)
+
+
+
+                    <p>@Html.DisplayNameFor(model => model.DataRaportu)</p>
+
+
+
+                    @Html.DisplayFor(model => model.DataRaportu)
+
+
+
+                    <p>@Html.DisplayNameFor(model => model.Temat)</p>
+
+
+
+                    @Html.DisplayFor(model => model.Temat)
+
+
+
+                    <p>@Html.DisplayNameFor(model => model.Tresc)</p>
+ 
+
+
+                    @Html.DisplayFor(model => model.Tresc)
+
+
+
+
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Usuń" class="buttonCreate" />
+
+            </div>
+        }
+
+    </div>
+
+
+    <div>
+        @Html.ActionLink("Back to List", (string)@Session["TypWidoku"], null, new { @class = "button marginForHeaderButtons" })
+    </div>
+</body>
+</html>

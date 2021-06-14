@@ -1,4 +1,9 @@
 ﻿using System;
+
+using System.Data;
+using System.Data.Entity;
+using System.Net;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,6 +11,11 @@ using System.Web.Mvc;
 using Raporter.Data;
 using Raporter.ViewModels;
 using Raporter.Models;
+
+
+
+
+
 
 
 
@@ -56,6 +66,35 @@ namespace Raporter.Controllers
 
             return View(query);
         }
+        public ActionResult ViewRap_Adm()
+        {
+            var funkcja = Session["FunkcjaID"];
+            Session["TypWidoku"] = "ViewRap_Adm";
+
+            List<Uzytkownicy> uzytkownik = db.Uzytkownicies.ToList();
+            List<Raporty> raport = db.Raporties.ToList();
+            List<Oddzialy> oddzial = db.Oddzialies.ToList();
+            List<Funkcje> funkcj = db.Funkcjes.ToList();
+
+            var query = from rap in raport
+                        join uz in uzytkownik on rap.UzytkownicyID equals uz.UzytkownicyID into table1
+                        from uz in table1.ToList()
+                        join od in oddzial on uz.OddzialyID equals od.OddzialyID into table2
+                        from od in table2.ToList()
+                        join fn in funkcj on uz.UzytkownicyID equals fn.FunkcjeID into table3
+                        from fn in table3.ToList()
+                        //where od.OddzialyID.ToString() == funkcja.ToString()
+                        select new RaportsAdmViewModel
+                        {
+                            raport = rap,
+                            uzytkownik = uz,
+                            oddzial = od,
+                            funkcja = fn
+
+                        };
+
+            return View(query);
+        }
 
         public ActionResult Create()
         {
@@ -71,10 +110,65 @@ namespace Raporter.Controllers
             {
                 db.Raporties.Add(raporty);
                 db.SaveChanges();
-                return RedirectToAction("ViewRap", "UserRaportsView");
+                return RedirectToAction((string)@Session["TypWidoku"], "UserRaportsView");
             }
 
             return View("CreateRap");
+        }
+
+
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Raporty raporty = db.Raporties.Find(id);
+            if (raporty == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.UzytkownicyID = new SelectList(db.Uzytkownicies, "UzytkownicyID", "Imie", raporty.UzytkownicyID);
+            return View(raporty);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "RaportyID,DataRaportu,Temat,Tresc,UzytkownicyID")] Raporty raporty)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(raporty).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction((string)@Session["TypWidoku"], "UserRaportsView");
+            }
+            ViewBag.UzytkownicyID = new SelectList(db.Uzytkownicies, "UzytkownicyID", "Imie", raporty.UzytkownicyID);
+            return View(raporty);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Raporty raporty = db.Raporties.Find(id);
+            if (raporty == null)
+            {
+                return HttpNotFound();
+            }
+            return View(raporty);
+        }
+
+        // POST: Raporty/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Raporty raporty = db.Raporties.Find(id);
+            db.Raporties.Remove(raporty);
+            db.SaveChanges();
+            return RedirectToAction((string)@Session["TypWidoku"], "UserRaportsView");
         }
 
     }

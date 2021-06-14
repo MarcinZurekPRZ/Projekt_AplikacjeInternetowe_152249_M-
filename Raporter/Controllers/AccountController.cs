@@ -44,6 +44,10 @@ namespace Raporter.Controllers
                 {
                     return RedirectToAction("ViewRap_kier", "UserRaportsView");
                 }
+                  else if (funkcja.Id.ToString() == 3.ToString())
+                {
+                    return RedirectToAction("ViewRap_Adm", "UserRaportsView");
+                }
                 else
                 {
                     ViewBag.Error = "Niepoprawne dane oddzialu uzytkownika";

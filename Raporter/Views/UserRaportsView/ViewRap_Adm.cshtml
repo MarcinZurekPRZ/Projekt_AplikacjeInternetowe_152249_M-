@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Raporter.ViewModels.RaportsKierViewModel>
+﻿@model IEnumerable<Raporter.ViewModels.RaportsAdmViewModel>
 
 @{
     //ViewBag.Title = "Index";
@@ -43,7 +43,13 @@
                         @Html.DisplayNameFor(model => model.uzytkownik.Nazwisko)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.uzytkownik.Login)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.oddzial.NazwaOddzialu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.funkcja.NazwaFunkcji)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.raport.DataRaportu)
@@ -68,7 +74,14 @@
                         @Html.DisplayFor(modelItem => item.uzytkownik.Nazwisko)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.uzytkownik.Login)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.oddzial.NazwaOddzialu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.funkcja.NazwaFunkcji)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.raport.DataRaportu)
                     </td>
@@ -79,8 +92,8 @@
                         @Html.DisplayFor(modelItem => item.raport.Tresc)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.raport.RaportyID })
-
+                        @Html.ActionLink("Edytuj", "Edit", new { id = item.raport.RaportyID }) |
+                        @Html.ActionLink("Usuń", "Delete", new { id = item.raport.RaportyID })
                     </td>
                 </tr>
             }
