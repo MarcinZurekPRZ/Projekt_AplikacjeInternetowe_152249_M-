@@ -1,0 +1,70 @@
+﻿@model Raporter.Models.Uzytkownicy
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/createRap.css" />
+    <link rel="stylesheet" href="~/Content/buttonsRed.css" />
+    <title>DeleteUser</title>
+</head>
+<body>
+    <div class="center">
+        <div class="content" style="text-align: center">
+            <h3>Usuwanie użytkownika</h3>
+            <hr />
+
+            <p>
+                @Html.DisplayNameFor(model => model.Login)
+            </p>
+
+
+            @Html.DisplayFor(model => model.Login)
+            <p>
+                @Html.DisplayNameFor(model => model.Imie)
+            </p>
+
+
+            @Html.DisplayFor(model => model.Imie)
+
+
+            <p>
+                @Html.DisplayNameFor(model => model.Nazwisko)
+            </p>
+
+
+            @Html.DisplayFor(model => model.Nazwisko)
+
+            <p>
+                @Html.DisplayNameFor(model => model.Oddzialy.NazwaOddzialu)
+            </p>
+
+
+            @Html.DisplayFor(model => model.Oddzialy.NazwaOddzialu)
+
+
+            </dl>
+
+
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="buttonCreate" />
+
+            </div>
+        }
+    </div>
+
+    @Html.ActionLink("Powrót do listy", "ViewUrz",null, new { @class = "button marginForHeaderButtons" })
+
+</body>
+</html>

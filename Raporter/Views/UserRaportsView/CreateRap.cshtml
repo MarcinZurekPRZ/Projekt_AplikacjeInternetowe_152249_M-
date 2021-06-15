@@ -1,7 +1,7 @@
 ﻿@model Raporter.Models.Raporty
 
 @{
-    Layout = null;
+    ViewBag.Title = "Create";
 }
 
 <!DOCTYPE html>
@@ -11,6 +11,9 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/createRap.css" />
     <link rel="stylesheet" href="~/Content/buttonsRed.css" />
+    <link rel="stylesheet" href="~/Content/ValidationAlert.css" />
+
+
     <title>CreateRap</title>
 </head>
 <body>
@@ -27,6 +30,7 @@
                     <p>@Html.LabelFor(model => model.DataRaportu)</p>
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.DataRaportu, new { htmlAttributes = new { @class = "form-control" } })
+                        <br />
                         @Html.ValidationMessageFor(model => model.DataRaportu, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -47,13 +51,21 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <p>@Html.LabelFor(model => model.UzytkownicyID, "UzytkownicyID", htmlAttributes: new { @class = "control-label col-md-2" })</p>
-                    <div class="col-md-10">
-                        @Html.DropDownList("UzytkownicyID", null, htmlAttributes: new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.UzytkownicyID, "", new { @class = "text-danger" })
+                @if (((string)@Session["TypWidoku"] == ("ViewRap_Adm")))
+                {
+                    <div class="form-group">
+                        <p>@Html.LabelFor(model => model.UzytkownicyID, "Login", htmlAttributes: new { @class = "control-label col-md-2" })</p>
+                        <div class="col-md-10">
+                            @Html.DropDownList("UzytkownicyID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.UzytkownicyID, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
+                }
+                else
+                {
+                }
+
+
 
             </div>
 
@@ -66,9 +78,18 @@
         </div>
 
     }
-    
-<div>
-    @Html.ActionLink("Back to List", (string)@Session["TypWidoku"], null, new { @class = "button marginForHeaderButtons" })
-</div>
+
+    <div>
+        @Html.ActionLink("Powrót do listy", (string)@Session["TypWidoku"], null, new { @class = "button marginForHeaderButtons" })
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+
 </body>
 </html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

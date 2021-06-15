@@ -51,7 +51,6 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Tresc)
                     </th>
-                    <th></th>
                 </tr>
             </thead>
 
@@ -72,10 +71,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Tresc)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", "UserRaportsView", new { id = item.RaportyID }, null)
-
                     </td>
                 </tr>
             }

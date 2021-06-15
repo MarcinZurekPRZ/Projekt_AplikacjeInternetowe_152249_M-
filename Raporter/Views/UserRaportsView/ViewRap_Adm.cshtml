@@ -23,12 +23,27 @@
 
             @Html.ActionLink("Dodaj raport", "Create", null, new { @class = "button" })
 
+            @if (((string)@Session["TypWidoku"] == ("ViewRap_Adm")))
+            {
+
+                @Html.ActionLink(linkText: "Dodaj użytkownika", actionName: "Create", controllerName: "Account", routeValues: null, htmlAttributes: new { @class = "button" })
+                @Html.ActionLink(linkText: "Wyświetl użytkowników", actionName: "ViewUrz", controllerName: "Account", routeValues: null, htmlAttributes: new { @class = "button" })
+
+
+            }
+            else
+            {
+            }
+
         </div>
+
+
         <div class="blockMenu">
 
             @Html.ActionLink(linkText: "Wyloguj", actionName: "Logout", controllerName: "Account", routeValues: null, htmlAttributes: new { @class = "button buttonLogout" })
 
         </div>
+
 
     </div>
 

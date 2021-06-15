@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Raporter.Models.Uzytkownicy>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewUrz</title>
+
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/createRap.css" />
+    <link rel="stylesheet" href="~/Content/buttonsRed.css" />
+    <link rel="stylesheet" href="~/Content/TabeleSzablon_Raporty.css" />
+
+</head>
+<body>
+        @Html.ActionLink(linkText: "Powrót do listy", actionName: (string)@Session["TypWidoku"], controllerName: "UserRaportsView", routeValues: null, htmlAttributes: new { @class = "button marginForHeaderButtons" })
+
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Oddzialy.NazwaOddzialu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Imie)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nazwisko)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FunkcjeID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Login)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Oddzialy.NazwaOddzialu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Imie)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nazwisko)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FunkcjeID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Login)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.UzytkownicyID })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+</body>
+</html>

@@ -11,9 +11,8 @@
 }
 
 body {
-    font-family: Arial Narrow, sans-serif;
-    font-style: oblique
-    background: rgba( 71, 147, 227, 1);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
 }
 
 h2 {

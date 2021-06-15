@@ -25,7 +25,7 @@ namespace Raporter.Controllers
 {
     public class UserRaportsViewController : Controller
     {
-        RaporterContext db = new RaporterContext();
+        readonly RaporterContext db = new RaporterContext();
         // GET: UserRaportsView
         public ActionResult ViewRap()
         {
@@ -43,7 +43,7 @@ namespace Raporter.Controllers
 
         public ActionResult ViewRap_kier()
         {
-            var funkcja = Session["FunkcjaID"];
+            var oddzialID = Session["OddzialID"];
             Session["TypWidoku"] = "ViewRap_kier";
 
             List<Uzytkownicy> uzytkownik = db.Uzytkownicies.ToList();
@@ -55,7 +55,7 @@ namespace Raporter.Controllers
                         from uz in table1.ToList()
                         join od in oddzial on uz.OddzialyID equals od.OddzialyID into table2
                         from od in table2.ToList()
-                        where od.OddzialyID.ToString() == funkcja.ToString()
+                        where od.OddzialyID.ToString() == oddzialID.ToString()
                         select new RaportsKierViewModel
                         {
                             raport=rap,
@@ -68,22 +68,23 @@ namespace Raporter.Controllers
         }
         public ActionResult ViewRap_Adm()
         {
-            var funkcja = Session["FunkcjaID"];
             Session["TypWidoku"] = "ViewRap_Adm";
 
             List<Uzytkownicy> uzytkownik = db.Uzytkownicies.ToList();
             List<Raporty> raport = db.Raporties.ToList();
             List<Oddzialy> oddzial = db.Oddzialies.ToList();
             List<Funkcje> funkcj = db.Funkcjes.ToList();
+            
+            var oddzialID = Session["OddzialID"];
 
-            var query = from rap in raport
-                        join uz in uzytkownik on rap.UzytkownicyID equals uz.UzytkownicyID into table1
-                        from uz in table1.ToList()
+            var query = from uz in uzytkownik
+                        join rap in raport  on uz.UzytkownicyID equals rap.UzytkownicyID into table1
+                        from rap in table1.ToList()
                         join od in oddzial on uz.OddzialyID equals od.OddzialyID into table2
                         from od in table2.ToList()
-                        join fn in funkcj on uz.UzytkownicyID equals fn.FunkcjeID into table3
+                        join fn in funkcj on uz.FunkcjeID equals fn.FunkcjeID into table3
                         from fn in table3.ToList()
-                        //where od.OddzialyID.ToString() == funkcja.ToString()
+                        //where od.OddzialyID.ToString() == oddzialID.ToString()
                         select new RaportsAdmViewModel
                         {
                             raport = rap,
@@ -92,6 +93,7 @@ namespace Raporter.Controllers
                             funkcja = fn
 
                         };
+        
 
             return View(query);
         }
@@ -108,6 +110,10 @@ namespace Raporter.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!((string)@Session["TypWidoku"] == ("ViewRap_Adm")))
+                {
+                    raporty.UzytkownicyID = (int)Session["UserID"];
+                }    
                 db.Raporties.Add(raporty);
                 db.SaveChanges();
                 return RedirectToAction((string)@Session["TypWidoku"], "UserRaportsView");
@@ -128,7 +134,8 @@ namespace Raporter.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UzytkownicyID = new SelectList(db.Uzytkownicies, "UzytkownicyID", "Imie", raporty.UzytkownicyID);
+            ViewBag.UzytkownicyID = new SelectList(db.Uzytkownicies, "UzytkownicyID", "Login", raporty.UzytkownicyID);
+            Session["Temp_UzytkownicyID"] = raporty.UzytkownicyID;
             return View(raporty);
         }
 
@@ -138,6 +145,13 @@ namespace Raporter.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (!((string)@Session["TypWidoku"] == ("ViewRap_Adm")))
+                {
+                    raporty.UzytkownicyID = (int)Session["Temp_UzytkownicyID"];
+                    Session.Remove("Temp_UzytkownicyID");
+                }
+
                 db.Entry(raporty).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction((string)@Session["TypWidoku"], "UserRaportsView");

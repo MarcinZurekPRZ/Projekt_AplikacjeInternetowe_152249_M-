@@ -169,6 +169,7 @@
     <Content Include="Content\createRap.css" />
     <Content Include="Content\mainSite.css" />
     <Content Include="Content\TabeleSzablon_Raporty.css" />
+    <Content Include="Content\ValidationAlert.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -228,6 +229,9 @@
     <Content Include="Views\UserRaportsView\Edit.cshtml" />
     <Content Include="Views\UserRaportsView\ViewRap_Adm.cshtml" />
     <Content Include="Views\UserRaportsView\Delete.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\ViewUrz.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
