@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Raporter.Models.Uzytkownicy>
+﻿@model IEnumerable<Raporter.ViewModels.UsersListViewModel>
 
 @{
     Layout = null;
@@ -8,36 +8,33 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
     <title>ViewUrz</title>
-
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/createRap.css" />
     <link rel="stylesheet" href="~/Content/buttonsRed.css" />
     <link rel="stylesheet" href="~/Content/TabeleSzablon_Raporty.css" />
-
 </head>
 <body>
-        @Html.ActionLink(linkText: "Powrót do listy", actionName: (string)@Session["TypWidoku"], controllerName: "UserRaportsView", routeValues: null, htmlAttributes: new { @class = "button marginForHeaderButtons" })
+    @Html.ActionLink(linkText: "Powrót do listy", actionName: (string)@Session["TypWidoku"], controllerName: "UserRaportsView", routeValues: null, htmlAttributes: new { @class = "button marginForHeaderButtons" })
 
     <div class="table-wrapper">
         <table class="fl-table">
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Oddzialy.NazwaOddzialu)
+                        @Html.DisplayNameFor(model => model.uzytkownik.Login)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Imie)
+                        @Html.DisplayNameFor(model => model.uzytkownik.Imie)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Nazwisko)
+                        @Html.DisplayNameFor(model => model.uzytkownik.Nazwisko)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.FunkcjeID)
+                        @Html.DisplayNameFor(model => model.funkcja.NazwaFunkcji)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Login)
+                        @Html.DisplayNameFor(model => model.oddzial.NazwaOddzialu)
                     </th>
                     <th></th>
                 </tr>
@@ -47,22 +44,22 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Oddzialy.NazwaOddzialu)
+                        @Html.DisplayFor(modelItem => item.uzytkownik.Login)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Imie)
+                        @Html.DisplayFor(modelItem => item.uzytkownik.Imie)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Nazwisko)
+                        @Html.DisplayFor(modelItem => item.uzytkownik.Nazwisko)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FunkcjeID)
+                        @Html.DisplayFor(modelItem => item.funkcja.NazwaFunkcji)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Login)
+                        @Html.DisplayFor(modelItem => item.oddzial.NazwaOddzialu)
                     </td>
                     <td>
-                        @Html.ActionLink("Delete", "Delete", new { id = item.UzytkownicyID })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.uzytkownik.UzytkownicyID })
                     </td>
                 </tr>
             }

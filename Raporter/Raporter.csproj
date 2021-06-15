@@ -159,6 +159,7 @@
     <Compile Include="ViewModels\RaportsAdmViewModel.cs" />
     <Compile Include="ViewModels\RaportsKierViewModel.cs" />
     <Compile Include="ViewModels\UserRaportsViewModel.cs" />
+    <Compile Include="ViewModels\UsersListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

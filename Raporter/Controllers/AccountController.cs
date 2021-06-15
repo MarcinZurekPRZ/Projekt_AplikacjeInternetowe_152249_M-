@@ -114,8 +114,26 @@ namespace Raporter.Controllers
 
         public ActionResult ViewUrz()
         {
-            var uzytkownicies = db.Uzytkownicies;
-            return View(uzytkownicies.ToList());
+            
+            List<Uzytkownicy> uzytkownik = db.Uzytkownicies.ToList();
+            List<Funkcje> funkcja = db.Funkcjes.ToList();
+            List<Oddzialy> oddzial = db.Oddzialies.ToList();
+
+            var query = from uz in uzytkownik
+                        join fun in funkcja on uz.FunkcjeID equals fun.FunkcjeID into table1
+                        from fun in table1.ToList()
+                        join od in oddzial on uz.OddzialyID equals od.OddzialyID into table2
+                        from od in table2.ToList()
+                        select new UsersListViewModel
+                        {
+                            uzytkownik = uz,
+                            oddzial = od,
+                            funkcja = fun
+
+                        };
+        
+         return View(query);
+
         }
 
 

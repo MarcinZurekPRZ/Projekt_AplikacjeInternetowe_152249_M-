@@ -1,22 +1,19 @@
 ﻿@model Raporter.Models.Raporty
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "CreateRap";
 }
 
 <!DOCTYPE html>
 
-<html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="~/Content/createRap.css" />
     <link rel="stylesheet" href="~/Content/buttonsRed.css" />
     <link rel="stylesheet" href="~/Content/ValidationAlert.css" />
-
-
-    <title>CreateRap</title>
 </head>
-<body>
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -39,6 +36,7 @@
                     <p>@Html.LabelFor(model => model.Temat, htmlAttributes: new { @class = "control-label col-md-2" })</p>
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Temat, new { htmlAttributes = new { @class = "form-control" } })
+                        <br />
                         @Html.ValidationMessageFor(model => model.Temat, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -47,6 +45,7 @@
                     <p>@Html.LabelFor(model => model.Tresc, htmlAttributes: new { @class = "control-label col-md-2" })</p>
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Tresc, new { htmlAttributes = new { @class = "form-control" } })
+                        <br />
                         @Html.ValidationMessageFor(model => model.Tresc, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -57,6 +56,7 @@
                         <p>@Html.LabelFor(model => model.UzytkownicyID, "Login", htmlAttributes: new { @class = "control-label col-md-2" })</p>
                         <div class="col-md-10">
                             @Html.DropDownList("UzytkownicyID", null, htmlAttributes: new { @class = "form-control" })
+                            <br />
                             @Html.ValidationMessageFor(model => model.UzytkownicyID, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -83,12 +83,6 @@
         @Html.ActionLink("Powrót do listy", (string)@Session["TypWidoku"], null, new { @class = "button marginForHeaderButtons" })
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-
-
-</body>
-</html>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
