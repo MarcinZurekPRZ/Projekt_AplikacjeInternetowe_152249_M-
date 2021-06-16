@@ -15,21 +15,16 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
-
     <div class="center">
         <div class="blockMenu">
-
             @Html.ActionLink("Dodaj raport", "Create", null, new { @class = "button" })
-
         </div>
         <div class="blockMenu">
 
             @Html.ActionLink(linkText: "Wyloguj", actionName: "Logout", controllerName: "Account", routeValues: null, htmlAttributes: new { @class = "button buttonLogout" })
 
         </div>
-
     </div>
-
     <div class="table-wrapper">
         <table class="fl-table">
             <thead>
@@ -55,7 +50,6 @@
                     <th></th>
                 </tr>
             </thead>
-
             @foreach (var item in Model)
             {
                 <tr>
@@ -78,7 +72,6 @@
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.raport.RaportyID })
-
                     </td>
                 </tr>
             }

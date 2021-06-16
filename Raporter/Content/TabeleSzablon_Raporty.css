@@ -31,7 +31,12 @@ h2 {
 
 .blockMenu{
     float: left;
-    width: 50%;
+    width: 75;
+}
+
+.blockMenu1 {
+    float: right;
+    width: 25;
 }
 
 .center {

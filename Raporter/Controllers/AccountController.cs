@@ -26,9 +26,6 @@ namespace Raporter.Controllers
         {
             RaporterContext db = new RaporterContext();
 
-
-            //var login = db.Uzytkownicies.Where(a => a.Login.Equals(avm.uzytkownik.Login));
-
             if((db.Uzytkownicies.Where(a => a.Login.Equals(avm.uzytkownik.Login) && a.Haslo.Equals(avm.uzytkownik.Haslo)).FirstOrDefault()) != null)
             {
                 var id = db.Uzytkownicies.Where(a => a.Login.Equals(avm.uzytkownik.Login) && a.Haslo.Equals(avm.uzytkownik.Haslo)).Select(a => new { Id = a.UzytkownicyID }).FirstOrDefault();
@@ -40,8 +37,6 @@ namespace Raporter.Controllers
                 Session["FunkcjaID"] = funkcja.Id;
                 Session["OddzialID"] = oddzial.Id;
 
-                //return RedirectToAction("ViewRap", "UserRaportsView");
-                //return View("Welcome");
                 if (funkcja.Id.ToString() == 1.ToString())
                 {
                     return RedirectToAction("ViewRap", "UserRaportsView");
